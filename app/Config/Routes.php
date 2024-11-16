@@ -14,4 +14,5 @@ $routes->group('/dashboard',['namespace' => 'App\Controllers\Dashboard' ], stati
 	$routes->get('orders','OrdersController::index');
 });
 
+$routes->get('/', 'Home::index');
 service('auth')->routes($routes);
