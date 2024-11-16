@@ -25,6 +25,33 @@ class ProductsController extends BaseController {
 		];
         return view('dashboard/products', $data);
     }
+
+	public function crud()
+	{
+		$model = new ProductsModel();
+		if ($this->request->getMethod() === 'POST') {
+			$delete_id = $this->request->getPost('delete_id');
+			if ($delete_id) {
+                $model->delete($delete_id);
+                $this->session->setFlashdata('success', 'Sản phẩm đã được xóa thành công!');
+				return redirect()->to('/dashboard/products');
+            }
+			$change_id = $this->request->getPost('change_id');
+//			if ($change_id) {
+//				$data = [
+//                    'name' => $this->request->getPost('name'),
+//                    'description' => $this->request->getPost('description'),
+//                    'price' => $this->request->getPost('price'),
+//                    'stock' => $this->request->getPost('stock'),
+//                    'categories_id' => $this->request->getPost('category'),
+//                ];
+//                $model->update($change_id, $data);
+//                $this->session->setFlashdata('success', 'Sản phẩm đã được cập nhật thành công!');
+//                return redirect()->to('/dashboard/products');
+//			}
+		}
+		return redirect()->to('/dashboard/products');
+	}
 	public function createView(): string {
 		$model = new CategoriesModel();
         $data = [

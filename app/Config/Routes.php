@@ -9,6 +9,7 @@ use CodeIgniter\Router\RouteCollection;
 $routes->group('/dashboard',['namespace' => 'App\Controllers\Dashboard' ], static function ($routes) {
 	$routes->get('/', 'HomeDashboard::index');
 	$routes->get('products', 'ProductsController::index');
+	$routes->post('products', 'ProductsController::crud');
 	$routes->get('create_product','ProductsController::createView');
 	$routes->post('create_product', 'ProductsController::create');
 	$routes->get('orders','OrdersController::index');

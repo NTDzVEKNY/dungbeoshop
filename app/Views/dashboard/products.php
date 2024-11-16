@@ -71,17 +71,24 @@ Create New
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-end bg-white border box-shadow">
                                         <li>
-                                            <a class="dropdown-item" href="javascript:;">
+                                            <form method="post">
+                                                <?=csrf_field()?>
+                                                <input type="hidden" name="change_id" value="<?php echo $product->id?>">
+                                            <button class="dropdown-item" href="javascript:;">
                                                 <i data-feather="edit-3"></i>
                                                 Change
-                                            </a>
+                                            </button>
+                                            </form>
                                         </li>
 
                                         <li>
-                                            <a class="dropdown-item" href="javascript:;">
+                                            <form method="post">
+                                                <input type="hidden" name="delete_id" value="<?php echo $product->id?>">
+                                            <button class="dropdown-item" href="javascript:;">
                                                 <i data-feather="trash-2"></i>
                                                 Remove
-                                            </a>
+                                            </button>
+                                            </form>
                                         </li>
                                     </ul>
                                 </div>
