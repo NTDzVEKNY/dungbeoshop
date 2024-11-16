@@ -55,4 +55,13 @@ abstract class BaseController extends Controller
 
         // E.g.: $this->session = \Config\Services::session();
     }
+	protected \CodeIgniter\Session\Session $session;
+
+
+	function __construct()
+	{
+
+		$this->session = \Config\Services::session();
+		$this->session->start();
+	}
 }

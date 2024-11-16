@@ -10,7 +10,7 @@ $routes->group('/dashboard',['namespace' => 'App\Controllers\Dashboard' ], stati
 	$routes->get('/', 'HomeDashboard::index');
 	$routes->get('products', 'ProductsController::index');
 	$routes->get('create_product','ProductsController::createView');
-
+	$routes->post('create_product', 'ProductsController::create');
 	$routes->get('orders','OrdersController::index');
 });
 

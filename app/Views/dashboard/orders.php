@@ -1,3 +1,8 @@
+<?php
+    use App\Models\ClientsModel;
+    $model = new ClientsModel();
+?>
+
 <?= $this->extend('layouts/_main') ?>
 
 <?= $this->section('content') ?>
@@ -105,28 +110,29 @@
                         <th scope="col">Customer</th>
                         <th scope="col">Price</th>
                         <th scope="col">Status</th>
-                        <th scope="col">Date</th>
+                        <th scope="col">Note</th>
                         <th scope="col">Shipping Address</th>
                     </tr>
                     </thead>
                     <tbody>
+                    <?php foreach ($orders as $order): ?>
                     <tr>
-                        <td class="fs-15 fw-semibold">#SK258</td>
+                        <td class="fs-15 fw-semibold"><?= $order->id ?></td>
 
-                        <td>Colin Firth</td>
-                        <td>$289.50</td>
+                        <td><?= $model->findByClientId($order->client_id)?></td>
+                        <td><?= $order->total?></td>
                         <td>
-                            <span class="badge bg-primary text-primary bg-opacity-10 fw-semibold fs-13 py-2 px-3">Pending</span>
+                            <span class="badge bg-primary text-primary bg-opacity-10 fw-semibold fs-13 py-2 px-3"><?=$order->status?>Pending</span>
                         </td>
-                        <td>2021-12-19</td>
-                        <td>Boetic Fashion</td>
-
+                        <td><?=$order->note?></td>
+                        <td><?=$order->shipping_address ?></td>
                     </tr>
+                    <?php endforeach;?>
                     </tbody>
                 </table>
             </div>
             <div class="d-sm-flex justify-content-between align-items-center text-center">
-                <span class="fs-14">Showing 1 To 8 Of 20 Entries</span>
+                <span class="fs-14">Showing All Entries</span>
                 <nav aria-label="Page navigation example">
                     <ul class="pagination mb-0 mt-3 mt-sm-0 justify-content-center">
                         <li class="page-item">
@@ -135,8 +141,6 @@
                             </a>
                         </li>
                         <li class="page-item"><a class="page-link active" href="orders-list.html">1</a></li>
-                        <li class="page-item"><a class="page-link" href="orders-list.html">2</a></li>
-                        <li class="page-item"><a class="page-link" href="orders-list.html">3</a></li>
                         <li class="page-item">
                             <a class="page-link icon" href="orders-list.html" aria-label="Next">
                                 <i data-feather="arrow-right"></i>

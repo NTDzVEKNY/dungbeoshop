@@ -9,10 +9,16 @@
 namespace App\Controllers\Dashboard;
 
 use App\Controllers\BaseController;
+use App\Models\OrdersModel;
 
 class OrdersController extends BaseController {
 	public function index(): string {
-        $data['title'] = 'Quản lý đơn hàng';
+		$model = new OrdersModel();
+
+        $data = [
+			'title'=>'Quản lý đơn hàng',
+			'orders' => $model->getAllOrders(),
+		];
         return view('dashboard/orders', $data);
     }
 }
