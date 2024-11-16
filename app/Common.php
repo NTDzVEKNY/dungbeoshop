@@ -13,3 +13,30 @@
  *
  * @see: https://codeigniter.com/user_guide/extending/common.html
  */
+
+const PARAMS = [
+	'app_name'    => 'DungBeo',
+	'app_version' => '2.4.10',
+	'email'       => [
+		'support_email' => 'ntdgdeptrai@gmail.com',
+	],
+];
+
+const MENU_STATUS = [
+	'pending' => [
+		'color' => 'danger',
+		'title' => 'Đang phát triển',
+	],
+	'coming_soon' => [
+		'color' => 'warning',
+		'title' => 'Sắp có',
+	],
+	'draft' => [
+		'color' => 'secondary',
+		'title' => 'Tạm dừng',
+	],
+	'updating' => [
+		'color' => 'primary',
+		'title' => 'Đang cập nhật',
+	],
+];
