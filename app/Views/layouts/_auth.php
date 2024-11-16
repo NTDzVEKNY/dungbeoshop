@@ -38,80 +38,80 @@
 <script src="<?= base_url() ?>assets/js/sweetalert.js" defer></script>
 <script src="<?= base_url() ?>assets/js/custom/custom.js" defer></script>
 
-<script defer>
-    document.addEventListener('DOMContentLoaded', function() {
-		<?php if (session()->getFlashdata('error')): ?>
-        Swal.fire({
-            icon: 'error',
-            title: 'Thất Bại!',
-            text: '<?= session()->getFlashdata('error') ?>',
-        });
-		<?php endif; ?>
-        createCaptcha();
-    });
-
-    let code;
-
-    function createCaptcha() {
-        document.getElementById('captcha').innerHTML = '';
-
-        let charsArray =
-            '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@!#$%^&*';
-        let lengthOtp = 6;
-        let captcha = [];
-
-        for (let i = 0; i < lengthOtp; i++) {
-            let index = Math.floor(Math.random() * charsArray.length + 1);
-
-            if (captcha.indexOf(charsArray[index]) === -1) {
-                captcha.push(charsArray[index]);
-            } else {
-                i--;
-            }
-        }
-
-        let canv = document.createElement('canvas');
-
-        canv.id = 'captcha';
-        canv.width = 200;
-        canv.height = 50;
-
-        let ctx = canv.getContext('2d');
-
-        ctx.font = '25px Georgia';
-        ctx.strokeText(captcha.join(''), 0, 30);
-        code = captcha.join('');
-        document.getElementById('captcha').appendChild(canv);
-    }
-
-    function validateCaptcha() {
-        event.preventDefault();
-
-        let captchaWrapper = document.getElementById('captcha-wrapper');
-        let form = captchaWrapper.closest('form');
-
-        if (document.getElementById('captchaTextBox').value === code) {
-            // Captcha is correct, show SweetAlert before submission
-            Swal.fire({
-                title: 'Đang đăng nhập...',
-                text: 'Xin vui lòng chờ một chút.',
-                icon: 'info',
-                showConfirmButton: false,
-                timer: 1000,
-                timerProgressBar: true
-            }).then(() => {
-                document.getElementById('login-form').submit();
-            });
-        } else {
-            Swal.fire({
-                icon: 'error',
-                title: 'Thất Bại!',
-                text: 'Mã đăng nhập không chính xác!',
-            });
-            createCaptcha();
-        }
-    }
-</script>
+<!--<script defer>-->
+<!--    document.addEventListener('DOMContentLoaded', function() {-->
+<!--		--><?php //if (session()->getFlashdata('error')): ?>
+//        Swal.fire({
+//            icon: 'error',
+//            title: 'Thất Bại!',
+//            text: '<?php //= session()->getFlashdata('error') ?>//',
+//        });
+//		<?php //endif; ?>
+//        createCaptcha();
+//    });
+//
+//    let code;
+//
+//    function createCaptcha() {
+//        document.getElementById('captcha').innerHTML = '';
+//
+//        let charsArray =
+//            '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@!#$%^&*';
+//        let lengthOtp = 6;
+//        let captcha = [];
+//
+//        for (let i = 0; i < lengthOtp; i++) {
+//            let index = Math.floor(Math.random() * charsArray.length + 1);
+//
+//            if (captcha.indexOf(charsArray[index]) === -1) {
+//                captcha.push(charsArray[index]);
+//            } else {
+//                i--;
+//            }
+//        }
+//
+//        let canv = document.createElement('canvas');
+//
+//        canv.id = 'captcha';
+//        canv.width = 200;
+//        canv.height = 50;
+//
+//        let ctx = canv.getContext('2d');
+//
+//        ctx.font = '25px Georgia';
+//        ctx.strokeText(captcha.join(''), 0, 30);
+//        code = captcha.join('');
+//        document.getElementById('captcha').appendChild(canv);
+//    }
+//
+//    function validateCaptcha() {
+//        event.preventDefault();
+//
+//        let captchaWrapper = document.getElementById('captcha-wrapper');
+//        let form = captchaWrapper.closest('form');
+//
+//        if (document.getElementById('captchaTextBox').value === code) {
+//            // Captcha is correct, show SweetAlert before submission
+//            Swal.fire({
+//                title: 'Đang đăng nhập...',
+//                text: 'Xin vui lòng chờ một chút.',
+//                icon: 'info',
+//                showConfirmButton: false,
+//                timer: 1000,
+//                timerProgressBar: true
+//            }).then(() => {
+//                document.getElementById('login-form').submit();
+//            });
+//        } else {
+//            Swal.fire({
+//                icon: 'error',
+//                title: 'Thất Bại!',
+//                text: 'Mã đăng nhập không chính xác!',
+//            });
+//            createCaptcha();
+//        }
+//    }
+//</script>
 </body>
 
 </html>
