@@ -1,3 +1,7 @@
+<?php
+use App\Models\CategoriesModel;
+$model = new CategoriesModel();
+?>
 <?= $this->extend('layouts/_main') ?>
 
 <?= $this->section('content') ?>
@@ -42,22 +46,23 @@ Create New
                         </tr>
                         </thead>
                         <tbody>
+                    <?php foreach ($products as $product): ?>
                         <tr>
                             <td>
                                 <div class="form-check p-0 d-flex align-items-center">
                                     <input class="form-check-input m-0" type="checkbox" value
                                            id="flexCheckDefault">
-                                    <a href="product-details.html" class="d-flex align-items-center ms-4">
-                                        <img src="<?= base_url() ?>/assets/images/product-1.jpg"
+                                    <a href="" class="d-flex align-items-center ms-4">
+                                        <img src="<?= base_url()?>assets/images/<?= $product->image ?>"
                                              class="wh-55 rounded-3" alt="product">
-                                        <h6>Laptop Macos Pro</h6>
+                                        <h6><?= $product->name ?></h6>
                                     </a>
                                 </div>
                             </td>
-                            <td>Laptop</td>
-                            <td>$289.50</td>
-                            <td>46</td>
-                            <td>12</td>
+                            <td> <?php echo $model->findByCategoryId($product->categories_id)->name ?></td>
+                            <td><?= $product->price ?></td>
+                            <td><?php echo random_int(0,100) ?> </td>
+                            <td><?= $product->stock ?></td>
                             <td>
                                 <div class="dropdown action-opt">
                                     <button class="btn bg p-0" type="button" data-bs-toggle="dropdown"
@@ -67,28 +72,11 @@ Create New
                                     <ul class="dropdown-menu dropdown-menu-end bg-white border box-shadow">
                                         <li>
                                             <a class="dropdown-item" href="javascript:;">
-                                                <i data-feather="share-2"></i>
-                                                Share
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" href="javascript:;">
-                                                <i data-feather="link-2"></i>
-                                                Get Sharable Link
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" href="javascript:;">
                                                 <i data-feather="edit-3"></i>
-                                                Rename
+                                                Change
                                             </a>
                                         </li>
-                                        <li>
-                                            <a class="dropdown-item" href="javascript:;">
-                                                <i data-feather="download"></i>
-                                                Download
-                                            </a>
-                                        </li>
+
                                         <li>
                                             <a class="dropdown-item" href="javascript:;">
                                                 <i data-feather="trash-2"></i>
@@ -99,11 +87,12 @@ Create New
                                 </div>
                             </td>
                         </tr>
+                    <?php endforeach;?>
                         </tbody>
                     </table>
                 </div>
                 <div class="d-sm-flex justify-content-between align-items-center text-center">
-                    <span class="fs-14">Showing 1 To 8 Of 20 Entries</span>
+                    <span class="fs-14">Showing All Entries</span>
                     <nav aria-label="Page navigation example">
                         <ul class="pagination mb-0 mt-3 mt-sm-0 justify-content-center">
                             <li class="page-item">
@@ -112,8 +101,7 @@ Create New
                                 </a>
                             </li>
                             <li class="page-item"><a class="page-link active" href="products.html">1</a></li>
-                            <li class="page-item"><a class="page-link" href="products.html">2</a></li>
-                            <li class="page-item"><a class="page-link" href="products.html">3</a></li>
+
                             <li class="page-item">
                                 <a class="page-link icon" href="products.html" aria-label="Next">
                                     <i data-feather="arrow-right"></i>
