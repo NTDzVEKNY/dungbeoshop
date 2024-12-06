@@ -54,7 +54,7 @@ Create New
 <!--                                           id="flexCheckDefault">-->
                                     <a href="" class="d-flex align-items-center ms-4">
                                         <img src="<?= base_url()?>uploads/<?= $product->image ?>"
-                                             class="wh-55 rounded-3" alt="product" style="max-width: 15git0px">
+                                             class="wh-55 rounded-3" alt="product" style="max-width: 150px">
                                         <h6><?= $product->name ?></h6>
                                     </a>
                                 </div>
@@ -71,14 +71,11 @@ Create New
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-end bg-white border box-shadow">
                                         <li>
-                                            <form method="post">
-                                                <?=csrf_field()?>
-                                                <input type="hidden" name="change_id" value="<?php echo $product->id?>">
-                                            <button class="dropdown-item" href="javascript:;">
+                                            <a class="dropdown-item" href="edit_product/<?=$product->id?>">
                                                 <i data-feather="edit-3"></i>
                                                 Change
-                                            </button>
-                                            </form>
+                                            </a>
+
                                         </li>
 
                                         <li>

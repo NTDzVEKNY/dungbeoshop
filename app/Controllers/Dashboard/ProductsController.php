@@ -13,6 +13,7 @@ use App\Models\CategoriesModel;
 use App\Models\ProductsModel;
 use CodeIgniter\I18n\Time;
 use CodeIgniter\Files\File;
+use CodeIgniter\HTTP\RedirectResponse;
 
 
 class ProductsController extends BaseController {
@@ -27,7 +28,7 @@ class ProductsController extends BaseController {
         return view('dashboard/products', $data);
     }
 
-	public function crud()
+	public function delete(): RedirectResponse
 	{
 		$model = new ProductsModel();
 		if ($this->request->getMethod() === 'POST') {
@@ -37,19 +38,6 @@ class ProductsController extends BaseController {
                 $this->session->setFlashdata('success', 'Sản phẩm đã được xóa thành công!');
 				return redirect()->to('/dashboard/products');
             }
-			$change_id = $this->request->getPost('change_id');
-//			if ($change_id) {
-//				$data = [
-//                    'name' => $this->request->getPost('name'),
-//                    'description' => $this->request->getPost('description'),
-//                    'price' => $this->request->getPost('price'),
-//                    'stock' => $this->request->getPost('stock'),
-//                    'categories_id' => $this->request->getPost('category'),
-//                ];
-//                $model->update($change_id, $data);
-//                $this->session->setFlashdata('success', 'Sản phẩm đã được cập nhật thành công!');
-//                return redirect()->to('/dashboard/products');
-//			}
 		}
 		return redirect()->to('/dashboard/products');
 	}
@@ -62,7 +50,10 @@ class ProductsController extends BaseController {
 		return view('dashboard/create_product', $data);
     }
 
-	public function create()
+	/**
+	 * @throws \ReflectionException
+	 */
+	public function create(): RedirectResponse
 	{
 	    $model = new ProductsModel();
 		if ($this->request->getMethod() === 'POST') {
@@ -87,9 +78,62 @@ class ProductsController extends BaseController {
                 return redirect()->to('/dashboard/products');
 			} else {
 				$this->session->setFlashdata('error', 'Có loi xảy ra khi thêm sản phẩm!');
-				die('1');
                 return redirect()->to('/dashboard/create_product');
 			}
+
 		}
+		return redirect()->to('/dashboard/create_product');
+	}
+	public function editView(int $id): string {
+		$product = new ProductsModel();
+		$product = $product->find($id);
+		$model = new CategoriesModel();
+		$data = [
+			'title' => 'Sửa sản phẩm',
+			'categories' => $model->getAllCategories(),
+			'product' => $product,
+		];
+		return view('dashboard/edit_product', $data);
+	}
+
+	/**
+	 * @throws \ReflectionException
+	 */
+	public function edit(int $id): RedirectResponse
+	{
+		$model = new ProductsModel();
+		$product = $model->find($id);
+
+		if ($this->request->getMethod() === 'POST') {
+			$date = new Time('now');
+//			$date = $date->toDateTimeString();
+			$img = $this->request->getFile('image');
+			$nameImgFile = $product->image;
+			if ($img) {
+				$nameImgFile= $img->getRandomName();
+				$img->move(ROOTPATH.'public/uploads',$nameImgFile);
+			}
+
+			$data = [
+				'name' => $this->request->getPost('name'),
+				'description' => $this->request->getPost('description'),
+				'price' => $this->request->getPost('price'),
+				'stock' => $this->request->getPost('stock'),
+				'categories_id' => $this->request->getPost('category'),
+				'image' =>  $nameImgFile,
+				'updated_at' => $date,
+			];
+
+			if ($model->update($id, $data))
+			{
+				$this->session->setFlashdata('success', 'Sản phẩm đã được sửa thành công!');
+				return redirect()->to('/dashboard/products');
+			} else {
+				$this->session->setFlashdata('error', 'Có loi xảy ra khi sửa sản phẩm!');
+				return redirect()->to('/dashboard/create_product');
+			}
+
+		}
+		return redirect()->to('/dashboard/create_product');
 	}
 }
