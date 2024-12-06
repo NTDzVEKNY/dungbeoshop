@@ -86,6 +86,7 @@ phpunit
 #-------------------------
 vendor/
 !public/assets/vendor/
+public/uploads/*
 
 #-------------------------
 # IDE / Development Files

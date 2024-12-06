@@ -40,16 +40,16 @@
                     </div>
                 </div>
             </div>
-            <div class="row form-group mb-0" id="captcha-wrapper">
-                <label for="captchaTextBox" class="label">Mã Đăng
-                    Nhập <span class="text-danger">*</span></label>
-                <div class="col-6">
-                    <input type="text" class="form-control"
-                           placeholder="Mã đăng nhập" id="captchaTextBox"
-                           required />
-                </div>
-                <div class="col-6" id="captcha"></div>
-            </div>
+<!--            <div class="row form-group mb-0" id="captcha-wrapper">-->
+<!--                <label for="captchaTextBox" class="label">Mã Đăng-->
+<!--                    Nhập <span class="text-danger">*</span></label>-->
+<!--                <div class="col-6">-->
+<!--                    <input type="text" class="form-control"-->
+<!--                           placeholder="Mã đăng nhập" id="captchaTextBox"-->
+<!--                           required />-->
+<!--                </div>-->
+<!--                <div class="col-6" id="captcha"></div>-->
+<!--            </div>-->
         </div>
     </div>
     <div class="d-sm-flex justify-content-between mb-4">
