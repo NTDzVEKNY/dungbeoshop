@@ -13,7 +13,7 @@
 				<div class="col-xxl-3 col-xl-2 col-lg-2 col-sm-3 col-6">
 					<div class="logo">
 						<a href="index-2.html">
-							<img src="assets/images/logo.png" alt="logo">
+							<img src="assets/images/logo-icon.png" alt="logo">
 						</a>
 					</div>
 				</div>

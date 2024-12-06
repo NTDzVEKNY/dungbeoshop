@@ -130,10 +130,10 @@ class ProductsController extends BaseController {
 				return redirect()->to('/dashboard/products');
 			} else {
 				$this->session->setFlashdata('error', 'Có loi xảy ra khi sửa sản phẩm!');
-				return redirect()->to('/dashboard/create_product');
+				return redirect()->to('/dashboard/edit_product');
 			}
 
 		}
-		return redirect()->to('/dashboard/create_product');
+		return redirect()->to('/dashboard/edit_product');
 	}
 }
