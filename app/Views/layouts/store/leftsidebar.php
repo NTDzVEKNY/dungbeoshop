@@ -156,18 +156,15 @@
 											<a class="nav-link" href="/">About</a>
 										</li>
 										<li class="nav-item">
-											<a class="nav-link" href="shop.html" id="shopDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+											<a class="nav-link" href="#" id="shopDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 												Products
 											</a>
 										</li>
 
-										<li class="nav-item dropdown">
-											<a class="nav-link dropdown-toggle" href="#" id="blogDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+										<li class="nav-item">
+											<a class="nav-link" href="#" id="blogDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 												Blog
 											</a>
-											<ul class="dropdown-menu" aria-labelledby="blogDropdown">
-												<li><a class="dropdown-item" href="#">Blog</a></li>
-											</ul>
 										</li>
 										<li class="nav-item">
 											<a class="nav-link" href="/">Contact</a>

@@ -4344,7 +4344,7 @@ img {
     position: relative;
 }
 .banner .slider-area .slide-1 {
-    background: url(../assets/images/main-slider-img-1.png) center center no-repeat;
+    background: url(../images/main-slider-img-1.png) center center no-repeat;
     background-size: cover;
     position: relative;
     z-index: 2;
@@ -4359,7 +4359,7 @@ img {
     z-index: -1;
 }
 .banner .slider-area .slide-2 {
-    background: url(../assets/images/main-slider-img-2.png) center center no-repeat;
+    background: url(../images/main-slider-img-2.png) center center no-repeat;
     background-size: cover;
     position: relative;
     z-index: 2;
@@ -4375,7 +4375,7 @@ img {
     z-index: -1;
 }
 .banner .slider-area .slide-3 {
-    background: url(../assets/images/main-slider-img-3.png) center center no-repeat;
+    background: url(../images/main-slider-img-3.png) center center no-repeat;
     background-size: cover;
     position: relative;
     z-index: 2;
