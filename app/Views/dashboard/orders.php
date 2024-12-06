@@ -93,12 +93,12 @@
         <div class="d-sm-flex justify-content-between align-items-center border-bottom pb-20 mb-20">
             <h4 class="fw-bold fs-18 mb-0 text-center">Recent Orders</h4>
             <div class="d-sm-flex align-items-center gap-3 mt-3 mt-sm-0 justify-content-center">
-                <form class="src-form position-relative">
-                    <input type="text" class="form-control h-40 bg-body-bg border-0 text-dark" placeholder="Search here..">
-                    <button type="submit" class="src-btn position-absolute top-50 end-0 translate-middle-y bg-transparent p-0 border-0 pe-3">
-                        <i data-feather="search" style="stroke: #757FEF; width: 20px; height: 20px;"></i>
-                    </button>
-                </form>
+<!--                <form class="src-form position-relative">-->
+<!--                    <input type="text" class="form-control h-40 bg-body-bg border-0 text-dark" placeholder="Search here..">-->
+<!--                    <button type="submit" class="src-btn position-absolute top-50 end-0 translate-middle-y bg-transparent p-0 border-0 pe-3">-->
+<!--                        <i data-feather="search" style="stroke: #757FEF; width: 20px; height: 20px;"></i>-->
+<!--                    </button>-->
+<!--                </form>-->
             </div>
         </div>
         <div class="default-table-area">
@@ -106,12 +106,12 @@
                 <table class="table align-middle">
                     <thead>
                     <tr>
-                        <th scope="col" class="text-primary">Order ID </th>
-                        <th scope="col">Customer</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Note</th>
-                        <th scope="col">Shipping Address</th>
+                        <th scope="col" class="text-primary">ID </th>
+                        <th scope="col">Người mua</th>
+                        <th scope="col">Giá</th>
+                        <th scope="col">Trạng thái</th>
+                        <th scope="col">Ghi chú</th>
+                        <th scope="col">Địa chỉ nhận hàng</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -119,7 +119,7 @@
                     <tr>
                         <td class="fs-15 fw-semibold"><?= $order->id ?></td>
 
-                        <td><?= $model->findByClientId($order->client_id)?></td>
+                        <td><?= $model->findByClientId($order->client_id)->name?></td>
                         <td><?= $order->total?></td>
                         <td>
                             <span class="badge bg-primary text-primary bg-opacity-10 fw-semibold fs-13 py-2 px-3"><?=$order->status?>Pending</span>
@@ -136,13 +136,13 @@
                 <nav aria-label="Page navigation example">
                     <ul class="pagination mb-0 mt-3 mt-sm-0 justify-content-center">
                         <li class="page-item">
-                            <a class="page-link icon" href="orders-list.html" aria-label="Previous">
+                            <a class="page-link icon" href="#" aria-label="Previous">
                                 <i data-feather="arrow-left"></i>
                             </a>
                         </li>
-                        <li class="page-item"><a class="page-link active" href="orders-list.html">1</a></li>
+                        <li class="page-item"><a class="page-link active" href="#">1</a></li>
                         <li class="page-item">
-                            <a class="page-link icon" href="orders-list.html" aria-label="Next">
+                            <a class="page-link icon" href="#" aria-label="Next">
                                 <i data-feather="arrow-right"></i>
                             </a>
                         </li>
