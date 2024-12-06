@@ -53,8 +53,8 @@ Create New
                                     <input class="form-check-input m-0" type="checkbox" value
                                            id="flexCheckDefault">
                                     <a href="" class="d-flex align-items-center ms-4">
-                                        <img src="<?= base_url()?>assets/images/<?= $product->image ?>"
-                                             class="wh-55 rounded-3" alt="product">
+                                        <img src="<?= base_url()?>uploads/<?= $product->image ?>"
+                                             class="wh-55 rounded-3" alt="product" style="width: 200px">
                                         <h6><?= $product->name ?></h6>
                                     </a>
                                 </div>

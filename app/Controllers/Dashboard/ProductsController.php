@@ -12,10 +12,11 @@ use App\Controllers\BaseController;
 use App\Models\CategoriesModel;
 use App\Models\ProductsModel;
 use CodeIgniter\I18n\Time;
+use CodeIgniter\Files\File;
 
 
 class ProductsController extends BaseController {
-
+	protected $helpers = ['form'];
 
 	public function index(): string {
 		$model = new ProductsModel();
@@ -67,13 +68,16 @@ class ProductsController extends BaseController {
 		if ($this->request->getMethod() === 'POST') {
 			$date = new Time('now');
 //			$date = $date->toDateTimeString();
+			$img = $this->request->getFile('image');
+			$nameImgFile= $img->getRandomName();
+			$img->move(ROOTPATH.'public/uploads',$nameImgFile);
 			$data = [
 				'name' => $this->request->getPost('name'),
 				'description' => $this->request->getPost('description'),
                 'price' => $this->request->getPost('price'),
 				'stock' => $this->request->getPost('stock'),
 				'categories_id' => $this->request->getPost('category'),
-                'image' => 'bitcoin10.png',
+                'image' =>  $nameImgFile,
 				'created_at' => $date,
                 'updated_at' => $date,
 			];
