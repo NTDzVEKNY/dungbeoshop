@@ -34,7 +34,7 @@ Create New
                         <tr>
                             <th scope="col" class="text-primary">
                                 <div class="form-check p-0 d-flex align-items-center">
-                                    <input class="form-check-input m-0" type="checkbox" id="flexCheckDefault">
+<!--                                    <input class="form-check-input m-0" type="checkbox" id="flexCheckDefault">-->
                                     <span class="ms-4">Product Name</span>
                                 </div>
                             </th>
@@ -50,11 +50,11 @@ Create New
                         <tr>
                             <td>
                                 <div class="form-check p-0 d-flex align-items-center">
-                                    <input class="form-check-input m-0" type="checkbox" value
-                                           id="flexCheckDefault">
+<!--                                    <input class="form-check-input m-0" type="checkbox" value-->
+<!--                                           id="flexCheckDefault">-->
                                     <a href="" class="d-flex align-items-center ms-4">
                                         <img src="<?= base_url()?>uploads/<?= $product->image ?>"
-                                             class="wh-55 rounded-3" alt="product" style="width: 200px">
+                                             class="wh-55 rounded-3" alt="product" style="max-width: 15git0px">
                                         <h6><?= $product->name ?></h6>
                                     </a>
                                 </div>
@@ -103,14 +103,14 @@ Create New
                     <nav aria-label="Page navigation example">
                         <ul class="pagination mb-0 mt-3 mt-sm-0 justify-content-center">
                             <li class="page-item">
-                                <a class="page-link icon" href="products.html" aria-label="Previous">
+                                <a class="page-link icon" href="#" aria-label="Previous">
                                     <i data-feather="arrow-left"></i>
                                 </a>
                             </li>
-                            <li class="page-item"><a class="page-link active" href="products.html">1</a></li>
+                            <li class="page-item"><a class="page-link active" href="#">1</a></li>
 
                             <li class="page-item">
-                                <a class="page-link icon" href="products.html" aria-label="Next">
+                                <a class="page-link icon" href="#" aria-label="Next">
                                     <i data-feather="arrow-right"></i>
                                 </a>
                             </li>
