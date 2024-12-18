@@ -16,12 +16,6 @@
 	<aside id="layout-menu" class="layout-menu menu-vertical menu active"
 		   data-simplebar>
 		<ul class="menu-inner">
-			<li class="menu-item open">
-				<a href="<?= base_url() ?>dashboard" class="menu-link active">
-					<i data-feather="home" class="menu-icon tf-icons"></i>
-					<span class="title">Trang Chủ</span>
-				</a>
-			</li>
 			<?php
 			    echo $this->include('layouts/menu');
             ?>
