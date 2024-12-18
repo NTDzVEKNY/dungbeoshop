@@ -119,7 +119,13 @@
 												<?php endif; ?></span>
                                             <div
                                                     class="d-flex align-content-center">
-                                                <h3>NTDzVEKNY</h3>
+                                                <h3><?php
+													$user = auth()->user();
+													if ($user->inGroup('superadmin')): ?>
+                                                        NTDzVEKNY
+													<?php else: ?>
+                                                        <?=$user->username?>
+													<?php endif; ?></h3>
                                                 <div class="down">
                                                     <i data-feather="chevron-down"></i>
                                                 </div>

@@ -25,12 +25,22 @@
 		<div class="d-flex align-items-center admin-info border-top">
 			<div class="flex-shrink-0">
 				<a href="#" class="d-block">
-					<img src="<?= base_url() ?>assets/images/uploads/adminavatar.jpg"
+					<img src=<?php if (auth()->user()->inGroup('superadmin')): ?>
+                         "<?= base_url() ?>assets/images/uploads/adminavatar.jpg"
+					<?php else : ?>
+                        "<?= base_url() ?>assets/images/uploads/Unknown_person.jpg"
+					<?php endif; ?>
 						 class="rounded-circle wh-54" alt="user">
 				</a>
 			</div>
 			<div class="flex-grow-1 ms-3 info">
-				<a href="" class="d-block name">NTDzVEKNY</a>
+				<a href="" class="d-block name"><?php
+					$user = auth()->user();
+					if ($user->inGroup('superadmin')): ?>
+                        NTDzVEKNY
+					<?php else: ?>
+						<?=$user->username?>
+					<?php endif; ?></a>
 				<a href="<?= site_url('/logout') ?>">Đăng Xuất</a>
 			</div>
 		</div>
