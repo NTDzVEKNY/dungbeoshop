@@ -46,7 +46,23 @@
 		<?= $this->include('layouts/footer') ?>
 	</div>
 </div>
-
+<script defer>
+    document.addEventListener('DOMContentLoaded', function() {
+		<?php if (session()->getFlashdata('error')): ?>
+        Swal.fire({
+            icon: 'error',
+            title: 'Thất Bại!',
+            text: '<?= session()->getFlashdata('error') ?>',
+        });
+        <?php elseif (session()->getFlashdata('success')): ?>
+        Swal.fire({
+            icon: 'success',
+            title: 'Thành Công!',
+            text: '<?= session()->getFlashdata('success') ?>',
+        });
+		<?php endif; ?>
+    });
+</script>
 <script src="<?= base_url() ?>assets/js/bootstrap.bundle.min.js" defer></script>
 <script src="<?= base_url() ?>assets/js/sidebar-menu.js" defer></script>
 <script src="<?= base_url() ?>assets/js/dragdrop.js" defer></script>
