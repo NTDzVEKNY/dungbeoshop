@@ -10,7 +10,7 @@
 	<div class="col-lg-8">
 		<div class="card bg-white border-0 rounded-10 mb-4">
 			<div class="card-body p-4">
-				<h3 class="fs-18 mb-4 border-bottom pb-20 mb-20">Create Account</h3>
+				<h3 class="fs-18 mb-4 border-bottom pb-20 mb-20">Change Password</h3>
 				<form method="post" enctype="multipart/form-data" >
 					<?= csrf_field() ?>
 					<div class="row">
@@ -51,8 +51,7 @@
 						</div>
 						<div class="col-lg-12">
 							<div class="form-group">
-								<button type="submit" class="btn btn-primary py-3 px-5 fw-semibold text-white">Thêm
-									Tài Khoản
+								<button type="submit" class="btn btn-primary py-3 px-5 fw-semibold text-white">Xác Nhận
 								</button>
 							</div>
 						</div>
